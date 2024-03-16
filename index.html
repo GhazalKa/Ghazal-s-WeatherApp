@@ -3,34 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="src/index.css">
+    <link rel="stylesheet" type="text/css" href="src/index.css" />
     <title>Ghazal's Weather App</title>
   </head>
   <body>
-    <header>
-      <form>
-        <input type="search" placeholder="Enter a city.." required />
-        <input type="submit" value="Search" />
-      </form>
-    </header>
-    <main>
-      <div>
-        <h1>Paris</h1>
+    <div class="weather-app">
+      <header>
+        <form>
+          <input type="search" placeholder="Enter a city.." required />
+          <input type="submit" value="Search" />
+        </form>
+      </header>
+      <main>
+        <div>
+          <h1>Paris</h1>
+          <p>
+            Tuesday 14:49, scattered clouds
+            <br />
+            Humidity: 66%, Wind: 3.13km/h
+          </p>
+        </div>
+        <div>🌤️ 12°C</div>
+      </main>
+      <footer>
         <p>
-          Tuesday 14:49, scattered clouds
-          <br />
-          Humidity: 66%, Wind: 3.13km/h
+          This project was coded by
+          <a href="https://github.com/GhazalKa" target="_blank"
+            >Ghazal Kamari</a
+          >
+          and is
+          <a
+            href="https://github.com/GhazalKa/SheCodesWorkshop"
+            target="_blank"
+          >
+            on GitHub</a
+          >
+          and
+          <a href="https://she-codes-workshop.vercel.app/" target="_blank"
+            >hosted on vercel</a
+          >
         </p>
-      </div>
-      <div>🌤️ 12°C</div>
-    </main>
-    <footer>
-      <p>
-        This project was coded by
-        <a href="https://github.com/GhazalKa" target="_blank">Ghazal Kamari</a> and is
-        <a href="https://github.com/GhazalKa/SheCodesWorkshop" target="_blank"> on GitHub</a> and
-        <a href="https://she-codes-workshop.vercel.app/" target="_blank">hosted on vercel</a>
-      </p>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>
