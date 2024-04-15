@@ -4,6 +4,8 @@
 function refreshWeather(response) {
   console.log(response.data.temperature.current);
   let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = response.data.temperature.current;
+  //I had a bug here! the temperature.current wasn't updating cus the element wasn't declared
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city");
   console.log("cityElement.value");
