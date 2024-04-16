@@ -16,7 +16,7 @@ function refreshWeather(response) {
 
   //function for updating condition of the searched city
   let descriptionElement = document.querySelector("#description");
-  console.log(response.date.condition.description);
+  console.log(response.data.condition.description);
   descriptionElement.innerHTML = response.condition.description;
 }
 function searchcity(city) {
