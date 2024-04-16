@@ -2,16 +2,22 @@
 //declaring seprated functions is good seprate concern
 
 function refreshWeather(response) {
-  console.log(response.data.temperature.current);
   let temperatureElement = document.querySelector("#temperature");
+  console.log(response.data.temperature.current);
   temperatureElement.innerHTML = response.data.temperature.current;
+
   //I had a bug here! the temperature.current wasn't updating cus the element wasn't declared
   let temperature = response.data.temperature.current;
+  temperature.innerHTML = Math.round(temperature);
+
   let cityElement = document.querySelector("#city");
   console.log("cityElement.value");
   cityElement.innerHTML = response.data.city;
 
-  temperature.innerHTML = Math.round(temperature);
+  //function for updating condition of the searched city
+  let descriptionElement = document.querySelector("#description");
+  console.log(response.date.condition.description);
+  descriptionElement.innerHTML = response.condition.description;
 }
 function searchcity(city) {
   //make api call and update the interface
