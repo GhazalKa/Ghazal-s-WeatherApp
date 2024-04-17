@@ -28,17 +28,30 @@ function refreshWeather(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   console.log(response.data.wind.speed);
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+
   //for time
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
   // timeElement.innerHTML = `${date.getDay()} ${date.getHours()}:${date.getMinutes()}`;
   timeElement.innerHTML = formatDate(date);
+
+  //for icon
+  let iconElement = document.querySelector("#icon");
+  console.log(response.data.condition.icon_url);
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"/>`;
 }
 
 //function to turn days of the week  (number between 0-6)to sat,sun,...
 function formatDate(date) {
   let hours = date.getHours();
   let minuntes = date.getMinutes();
+  // if (minutes < 10) {
+  //   minutes = `0${minutes}`;
+  // }
+
+  // if (hours < 10) {
+  //   hours = `0${hours}`;
+  // }
   let days = [
     "Sunday",
     "Monday",
