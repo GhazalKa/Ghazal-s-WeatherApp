@@ -81,6 +81,44 @@ function handleSearchSubmit(event) {
   //the value of search input is send to above function by the following code
   searchcity(searchInput.value);
 }
+//forecast :
+function displayForecast() {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let forecastHtml = "";
+  days.forEach(function (day) {
+    // forecast.innerHTML = `
+    forecastHtml =
+      forecastHtml +
+      `
+        <div class="row">
+          <div class="col-2">
+            <div class="weather-forecast-date">${day}</div>
+            <br />
+            <img
+              src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+              alt=""
+              width="42"
+            />
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperatures-max">18°</span>
+              <span class="weather-forecast-temperatures-min">20°</span>
+            </div>
+          </div>
+        </div>
+`;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+displayForecast();
 
 let searchFormElement = document.querySelector("#search-form");
 // console.log(searchFormElement);
