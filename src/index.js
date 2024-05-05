@@ -39,6 +39,8 @@ function refreshWeather(response) {
   let iconElement = document.querySelector("#icon");
   console.log(response.data.condition.icon_url);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"/>`;
+
+  getForecast(response.data.city);
 }
 
 //function to turn days of the week  (number between 0-6)to sat,sun,...
@@ -65,7 +67,7 @@ function formatDate(date) {
   return `${day} ${hours}:${minuntes}`;
 }
 
-function searchcity(city) {
+function searchCity(city) {
   //make api call and update the interface
   let apiKey = "5362bd34cf050a03d30tbfffa6oc1faa";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=metric`;
@@ -79,10 +81,19 @@ function handleSearchSubmit(event) {
   //   console.log(searchInput.value);
 
   //the value of search input is send to above function by the following code
-  searchcity(searchInput.value);
+  searchCity(searchInput.value);
 }
+//the goal of this function is to get the forcast of a city
+function getForecast(city) {
+  let apiKey = "5362bd34cf050a03d30tbfffa6oc1faa";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&unit=metric`;
+  console.log(apiUrl);
+  axios(apiUrl).then(displayForecast);
+}
+
 //forecast :
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let days = [
     "Sunday",
     "Monday",
@@ -116,8 +127,11 @@ function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
 }
-displayForecast();
 
 let searchFormElement = document.querySelector("#search-form");
 // console.log(searchFormElement);
 searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Paris");
+
+// displayForecast();
