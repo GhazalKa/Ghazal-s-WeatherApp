@@ -85,8 +85,8 @@ function handleSearchSubmit(event) {
 }
 
 //function to map data.time to current day
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
+function formatDay(timestemp) {
+  let date = new Date(timestemp * 1000);
   let days = [
     "Sunday",
     "Monday",
@@ -96,6 +96,7 @@ function formatDay(timestamp) {
     "Friday",
     "Saturday",
   ];
+  return days[date.getDay()];
 }
 
 //the goal of this function is to get the forcast of a city
@@ -117,9 +118,7 @@ function displayForecast(response) {
       forecastHtml +
       `
           <div class="col-2">
-            <div class="weather-forecast-date">${formatDay(
-              response.data.daily.time
-            )}</div>
+            <div class="weather-forecast-date">${formatDay(day.time)}</div>
             <br />
             <img
               src="${day.condition.icon_url}"
